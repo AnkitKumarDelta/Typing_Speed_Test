@@ -111,10 +111,10 @@
                         <p>Mistakes:</p>
                         <span>0</span>
                     </li>
-                    <li class="wpm">
+                    <!-- <li class="wpm">
                         <p>WPM:</p>
                         <span>0</span>
-                    </li>
+                    </li> -->
                     <li class="cpm">
                         <p>CPM:</p>
                         <span>0</span>
@@ -142,12 +142,18 @@
 
         function loadParagraph() {
             const paragraph = [
-                "Avoid daydreaming about the years to come.",
-                "You are the most important person in your whole life.",
-                "Always be true to who you are, and ignore what other people have to say about you.",
-                "Only demonstrate your strength when it’s really required.",
-                "Subscribe to Drop X Out"
-            ];
+    "The quick brown fox jumps over the lazy dog. It's a well-known pangram used for typing practice.",
+    "In the age of information, learning never stops. Keep pushing your limits and challenging yourself.",
+    "Coding is both an art and a science. It requires creativity, logic, and continuous learning.",
+    "A journey of a thousand miles begins with a single step. Take that step today, and keep moving forward.",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+    "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+    "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.",
+    "The best way to predict your future is to create it. Set goals, work hard, and make your dreams a reality.",
+    "Embrace the glorious mess that you are. Perfection is an illusion, and your unique qualities are your strengths.",
+    "Every day may not be good, but there's something good in every day. Focus on the positives and stay motivated."
+];
+
             const index = Math.floor(Math.random() * paragraph.length);
             typingText.innerHTML = '';
             for (const char of paragraph[index]) {
@@ -183,8 +189,7 @@
                 }
                 mistake.innerText=mistakes;
                 cpm.textContent = charIndex - mistakes;
-                const wpmValue = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) / 60);
-            wpm.textContent = wpmValue > 0 ? wpmValue : 0;
+                
             if (charIndex === chars.length) {
                     clearInterval(timer);  // Stop the timer when the paragraph is completely typed
                     isTyping = false;
@@ -218,7 +223,6 @@ btn.addEventListener("click",()=>{
     isTyping=false;
     time.textContent = timeLeft;
     mistake.textContent = mistakes;
-    wpm.textContent = 0;
     cpm.textContent = 0;
     input.value = '';
 });
